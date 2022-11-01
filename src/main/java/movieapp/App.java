@@ -5,6 +5,8 @@
 
 package movieapp;
 
+import movieapp.util.AppUtil;
+import movieapp.view.HomePage;
 /**
  *
  * @author Putu Widyantara
@@ -12,6 +14,9 @@ package movieapp;
 public class App {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        AppUtil.init();
+        
+        HomePage homePage = new HomePage();
+        homePage.view();
     }
 }
