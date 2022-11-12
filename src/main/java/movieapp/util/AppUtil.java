@@ -9,7 +9,15 @@ import movieapp.repository.UserRepository;
 import movieapp.repository.UserRepositoryImpl;
 import movieapp.service.UserService;
 import movieapp.service.UserServiceImpl;
+import movieapp.repository.FilmRepository;
+import movieapp.repository.FilmRepositoryImpl;
+import movieapp.service.FilmService;
+import movieapp.service.FilmServiceImpl;
 import movieapp.view.UserView;
+import movieapp.entity.StudioTime;
+import movieapp.repository.StudioTimeRepository;
+import movieapp.repository.StudioTimeRepositoryImpl;
+
 /**
  *
  * @author Putu Widyantara
@@ -20,13 +28,23 @@ public class AppUtil {
     private static UserRepository userRepository;
     private static UserService userService;
     private static UserView userView;
-        
+    
+    private static FilmRepository filmRepository;
+    private static FilmService filmService;
+    
+    private static StudioTimeRepository studioTimeRepository;
+    
     public static void init(){
         dataSource = DatabaseUtil.getDataSource();
         
         userRepository = new UserRepositoryImpl(dataSource);
         userService = new UserServiceImpl(userRepository);
         userView = new UserView(userService);
+        
+        filmRepository = new FilmRepositoryImpl(dataSource);
+        filmService = new FilmServiceImpl(filmRepository);
+        
+        studioTimeRepository = new StudioTimeRepositoryImpl(dataSource);
     }
     
     public static DataSource getDataSource(){
@@ -40,5 +58,16 @@ public class AppUtil {
     }
     public static UserView getUserView(){
         return userView;
+    }
+    
+    public static FilmRepository getFilmRepository(){
+        return filmRepository;
+    }
+    public static FilmService getFilmService(){
+        return filmService;
+    }
+    
+    public static StudioTimeRepository getStudioTimeRepository(){
+        return studioTimeRepository;
     }
 }
