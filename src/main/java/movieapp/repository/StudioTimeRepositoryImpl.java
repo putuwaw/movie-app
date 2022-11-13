@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.sql.DataSource;
 
 /**
@@ -35,6 +36,24 @@ public class StudioTimeRepositoryImpl implements StudioTimeRepository {
             throw new RuntimeException(exception);
         }
         System.out.println(result);
+        return result;
+    }
+
+    @Override
+    public ArrayList<String> getListFilmTime(String idStudio) {
+        ArrayList<String> result = new ArrayList<>();
+        String sql = "SELECT DISTINCT(time) FROM `studio_time` WHERE `studio_id` = '" + idStudio + "'";
+        try (
+            Connection connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql)) {
+            while (resultSet.next()) {
+                String temp =  resultSet.getString("time");
+                result.add(temp);
+            }
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
         return result;
     }
 }

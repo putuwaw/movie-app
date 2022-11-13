@@ -4,10 +4,13 @@
  */
 package movieapp.repository;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Putu Widyantara
  */
 public interface StudioTimeRepository {
     Integer countAvailable(String idStudio, String time);
+    ArrayList<String> getListFilmTime(String idStudio);
 }
