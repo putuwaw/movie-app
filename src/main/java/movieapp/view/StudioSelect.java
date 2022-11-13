@@ -5,7 +5,9 @@
 package movieapp.view;
 
 import java.awt.Color;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JButton;
 import movieapp.entity.Film;
@@ -20,6 +22,7 @@ public class StudioSelect extends javax.swing.JFrame {
     private List<JButton> listTime;
     private Integer ticket;
     private Integer availTicket;
+    private ArrayList<String> listTimeArray;
     /**
      * Creates new form StudioSelect
      */
@@ -36,6 +39,9 @@ public class StudioSelect extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         BackButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -48,6 +54,19 @@ public class StudioSelect extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         TicketAvailLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+
+        jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jDialog1.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 10, 200, 30));
+
+        jButton7.setText("OK");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jDialog1.getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 200, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,7 +81,6 @@ public class StudioSelect extends javax.swing.JFrame {
         });
         getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 60, 40));
 
-        jButton3.setText("12.00");
         jButton3.setFocusPainted(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +89,6 @@ public class StudioSelect extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 143, 80, 40));
 
-        jButton4.setText("14.00");
         jButton4.setFocusPainted(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +97,6 @@ public class StudioSelect extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 143, 80, 40));
 
-        jButton5.setText("16.00");
         jButton5.setFocusPainted(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +105,6 @@ public class StudioSelect extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 143, 80, 40));
 
-        jButton6.setText("18.00");
         jButton6.setFocusPainted(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +133,11 @@ public class StudioSelect extends javax.swing.JFrame {
 
         StudioButton.setBorderPainted(false);
         StudioButton.setContentAreaFilled(false);
+        StudioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StudioButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(StudioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 120, 40));
 
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -262,11 +282,41 @@ public class StudioSelect extends javax.swing.JFrame {
         jButton2.setText(ticket.toString());
     }//GEN-LAST:event_IncreaseButtonActionPerformed
 
+    private void StudioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudioButtonActionPerformed
+        boolean isError = true;
+        // check if no studio is selected
+        for (JButton button : listTime){
+            if (button.getBackground() == Color.red){
+                isError = false;
+            }
+        }
+        if (isError){
+            jLabel2.setText("Error! silakan pilih jadwal!");
+            jDialog1.pack();
+            jDialog1.setLocationRelativeTo(null);
+            jDialog1.setVisible(true);
+        }else if(availTicket < ticket){
+            jLabel2.setText("Error! jumlah tiket melebihi batas!");
+            jDialog1.pack();
+            jDialog1.setLocationRelativeTo(null);
+            jDialog1.setVisible(true);
+        }
+        
+        // check if ticket selected is higher than avail
+       
+        
+    }//GEN-LAST:event_StudioButtonActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        jDialog1.setVisible(false);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     public void view(Film film){
         availTicket = 0;
         ticket = 1;
         jButton2.setText(ticket.toString());
-        
+        listTimeArray = AppUtil.getStudioTimeRepository().getListFilmTime(film.getIdStudio());
+        System.out.println(listTimeArray);
         this.film = film;
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + film.getId()+ ".jpg")));
         
@@ -277,7 +327,22 @@ public class StudioSelect extends javax.swing.JFrame {
         buttonList.add(jButton4);
         buttonList.add(jButton5);
         buttonList.add(jButton6);
-                
+        
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("HH.mm");  
+        Date date = new Date();
+        String timeNow = formatter.format(date);
+        
+        int counter = 0;
+        for (JButton button : listTime){
+            String compTime = listTimeArray.get(counter);
+            button.setText(compTime);
+//            if (compTime.compareTo(timeNow) < 0){
+//                button.setBackground(Color.red);
+//                button.setEnabled(false);
+//            }
+            counter++;
+        }
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -294,6 +359,9 @@ public class StudioSelect extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
