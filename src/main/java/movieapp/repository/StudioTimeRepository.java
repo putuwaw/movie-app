@@ -13,4 +13,5 @@ import java.util.ArrayList;
 public interface StudioTimeRepository {
     Integer countAvailable(String idStudio, String time);
     ArrayList<String> getListFilmTime(String idStudio);
+    ArrayList<String> getAvailSeat(String idStudio, String time);
 }

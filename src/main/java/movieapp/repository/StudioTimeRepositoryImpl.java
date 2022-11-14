@@ -5,7 +5,6 @@
 package movieapp.repository;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -49,6 +48,24 @@ public class StudioTimeRepositoryImpl implements StudioTimeRepository {
             ResultSet resultSet = statement.executeQuery(sql)) {
             while (resultSet.next()) {
                 String temp =  resultSet.getString("time");
+                result.add(temp);
+            }
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+        return result;
+    }
+
+    @Override
+    public ArrayList<String> getAvailSeat(String idStudio, String time) {
+        ArrayList<String> result = new ArrayList<>();
+        String sql = "SELECT `status` FROM `studio_time` WHERE `studio_id` = '" + idStudio + "' AND `time` = '" + time + "'";
+        try (
+            Connection connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql)) {
+            while (resultSet.next()) {
+                String temp =  resultSet.getString("status");
                 result.add(temp);
             }
         } catch (SQLException exception) {
