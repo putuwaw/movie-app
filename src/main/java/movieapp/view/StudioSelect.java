@@ -166,8 +166,8 @@ public class StudioSelect extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if (jButton3.getBackground() != Color.red){
-            jButton3.setBackground(Color.red);
+        if (jButton3.getBackground() != Color.green){
+            jButton3.setBackground(Color.green);
             availTicket = AppUtil.getStudioTimeRepository().countAvailable(film.getIdStudio(), jButton3.getText());
             TicketAvailLabel.setText(availTicket.toString());
             jButton4.setBackground(null);
@@ -183,7 +183,7 @@ public class StudioSelect extends javax.swing.JFrame {
         IncreaseButton.setEnabled(false);
         DecreaseButton.setEnabled(false);
         for (JButton button : listTime){
-            if (button.getBackground() == Color.red){
+            if (button.getBackground() == Color.green){
                 IncreaseButton.setEnabled(true);
                 DecreaseButton.setEnabled(true);
             }
@@ -191,8 +191,8 @@ public class StudioSelect extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (jButton4.getBackground() != Color.red){
-            jButton4.setBackground(Color.red);
+        if (jButton4.getBackground() != Color.green){
+            jButton4.setBackground(Color.green);
             availTicket = AppUtil.getStudioTimeRepository().countAvailable(film.getIdStudio(), jButton4.getText());
             TicketAvailLabel.setText(availTicket.toString());
 
@@ -209,7 +209,7 @@ public class StudioSelect extends javax.swing.JFrame {
         IncreaseButton.setEnabled(false);
         DecreaseButton.setEnabled(false);
         for (JButton button : listTime){
-            if (button.getBackground() == Color.red){
+            if (button.getBackground() == Color.green){
                 IncreaseButton.setEnabled(true);
                 DecreaseButton.setEnabled(true);
             }
@@ -217,8 +217,8 @@ public class StudioSelect extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        if (jButton5.getBackground() != Color.red){
-            jButton5.setBackground(Color.red);
+        if (jButton5.getBackground() != Color.green){
+            jButton5.setBackground(Color.green);
             availTicket = AppUtil.getStudioTimeRepository().countAvailable(film.getIdStudio(), jButton5.getText());
             TicketAvailLabel.setText(availTicket.toString());
 
@@ -235,7 +235,7 @@ public class StudioSelect extends javax.swing.JFrame {
         IncreaseButton.setEnabled(false);
         DecreaseButton.setEnabled(false);
         for (JButton button : listTime){
-            if (button.getBackground() == Color.red){
+            if (button.getBackground() == Color.green){
                 IncreaseButton.setEnabled(true);
                 DecreaseButton.setEnabled(true);
             }
@@ -243,8 +243,8 @@ public class StudioSelect extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        if (jButton6.getBackground() != Color.red){
-            jButton6.setBackground(Color.red);
+        if (jButton6.getBackground() != Color.green){
+            jButton6.setBackground(Color.green);
             availTicket = AppUtil.getStudioTimeRepository().countAvailable(film.getIdStudio(), jButton6.getText());
             TicketAvailLabel.setText(availTicket.toString());
 
@@ -261,7 +261,7 @@ public class StudioSelect extends javax.swing.JFrame {
         IncreaseButton.setEnabled(false);
         DecreaseButton.setEnabled(false);
         for (JButton button : listTime){
-            if (button.getBackground() == Color.red){
+            if (button.getBackground() == Color.green){
                 IncreaseButton.setEnabled(true);
                 DecreaseButton.setEnabled(true);
             }
@@ -286,7 +286,7 @@ public class StudioSelect extends javax.swing.JFrame {
         boolean isError = true;
         // check if no studio is selected
         for (JButton button : listTime){
-            if (button.getBackground() == Color.red){
+            if (button.getBackground() == Color.green){
                 isError = false;
             }
         }
@@ -300,11 +300,18 @@ public class StudioSelect extends javax.swing.JFrame {
             jDialog1.pack();
             jDialog1.setLocationRelativeTo(null);
             jDialog1.setVisible(true);
+        }else{
+// no error, next
+            String selectedTime = "";
+            for (JButton button : listTime){
+                if (button.getBackground() == Color.green){
+                    selectedTime = button.getText();
+                }
+            }
+            SeatSelect seatSelect = new SeatSelect();
+            seatSelect.view(this.film, selectedTime, this.ticket);
+            dispose();
         }
-        
-        // check if ticket selected is higher than avail
-       
-        
     }//GEN-LAST:event_StudioButtonActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -338,7 +345,6 @@ public class StudioSelect extends javax.swing.JFrame {
             String compTime = listTimeArray.get(counter);
             button.setText(compTime);
 //            if (compTime.compareTo(timeNow) < 0){
-//                button.setBackground(Color.red);
 //                button.setEnabled(false);
 //            }
             counter++;
