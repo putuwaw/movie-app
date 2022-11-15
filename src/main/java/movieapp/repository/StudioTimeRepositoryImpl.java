@@ -73,4 +73,21 @@ public class StudioTimeRepositoryImpl implements StudioTimeRepository {
         }
         return result;
     }
+
+    @Override
+    public String getStudioName(String idStudio) {
+        String result = "";
+        String sql = "SELECT `name` FROM `studio` WHERE `id_studio` = '" + idStudio + "'";
+        try (
+            Connection connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql)) {
+            while (resultSet.next()) {
+                result =  resultSet.getString("name");
+            }
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+        return result;
+    }
 }
