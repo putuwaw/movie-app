@@ -19,7 +19,9 @@ public class SeatSelect extends javax.swing.JFrame {
     private Film film;
     private String time;
     private Integer ticket;
+    private Integer absTicket;
     private ArrayList<String> seatStatus;
+    private ArrayList<JButton> buttonList;
     /**
      * Creates new form SeatSelect
      */
@@ -36,6 +38,9 @@ public class SeatSelect extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jButton17 = new javax.swing.JButton();
         BackButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -54,7 +59,22 @@ public class SeatSelect extends javax.swing.JFrame {
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         ticketLeft = new javax.swing.JLabel();
+        ConfirmButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+
+        jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Error! Masih ada tiket tersisa!");
+        jDialog1.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 190, 20));
+
+        jButton17.setText("OK");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+        jDialog1.getContentPane().add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 50, 190, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -119,6 +139,16 @@ public class SeatSelect extends javax.swing.JFrame {
         getContentPane().add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
         getContentPane().add(ticketLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 70, 30));
 
+        ConfirmButton.setBorderPainted(false);
+        ConfirmButton.setContentAreaFilled(false);
+        ConfirmButton.setFocusPainted(false);
+        ConfirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ConfirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 120, 40));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/select_seat.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 360));
 
@@ -131,14 +161,37 @@ public class SeatSelect extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BackButtonActionPerformed
 
+    private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
+        if (ticket > 0){
+            jDialog1.pack();
+            jDialog1.setLocationRelativeTo(null);
+            jDialog1.setVisible(true);
+        }else{
+            ArrayList<String> selectedChair = new ArrayList<>();
+            for (JButton button : buttonList){
+                if (button.getBackground() == Color.green){
+                    selectedChair.add(button.getText());
+                }
+            }
+            OrderConfirmation oc = new OrderConfirmation();
+            oc.view(this.film, this.time, this.absTicket, selectedChair);
+            dispose();
+        }
+    }//GEN-LAST:event_ConfirmButtonActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        jDialog1.setVisible(false);
+    }//GEN-LAST:event_jButton17ActionPerformed
+
     public void view(Film film, String time, Integer ticket){
         this.film = film;
         this.time = time;
         this.ticket = ticket;
+        this.absTicket = ticket;
         ticketLeft.setText(this.ticket.toString());
         this.seatStatus = AppUtil.getStudioTimeRepository().getAvailSeat(film.getIdStudio(), this.time);
         
-        ArrayList<JButton> buttonList = new ArrayList<>();
+        buttonList = new ArrayList<>();
         buttonList.add(jButton1);
         buttonList.add(jButton2);
         buttonList.add(jButton3);
@@ -184,6 +237,7 @@ public class SeatSelect extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;
+    private javax.swing.JButton ConfirmButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -192,6 +246,7 @@ public class SeatSelect extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -200,7 +255,9 @@ public class SeatSelect extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel ticketLeft;
     // End of variables declaration//GEN-END:variables
 }
