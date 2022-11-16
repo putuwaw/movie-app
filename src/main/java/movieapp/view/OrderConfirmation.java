@@ -8,8 +8,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
+import javax.swing.JButton;
 import movieapp.entity.Film;
+import movieapp.entity.Snack;
 import movieapp.util.AppUtil;
 
 /**
@@ -20,6 +24,9 @@ public class OrderConfirmation extends javax.swing.JFrame {
     private Film film;
     private String time;
     private Integer ticket;
+    ArrayList<String> chair;
+    private ArrayList<JButton> buttonList;
+    private Snack[] topThree;
     /**
      * Creates new form OrderConfirmation
      */
@@ -110,11 +117,16 @@ public class OrderConfirmation extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 90, 100));
 
         jButton3.setText("jButton3");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 80, 100));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 90, 100));
 
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setFocusPainted(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 120, 20));
 
         BackButton.setBorderPainted(false);
@@ -144,10 +156,17 @@ public class OrderConfirmation extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BackButtonActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        SnackSelect snackSelect = new SnackSelect();
+        snackSelect.view(this.film, this.time, this.ticket, this.chair);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     public void view(Film film, String time, Integer ticket, ArrayList<String> chair){
         this.film = film;
         this.time = time;
         this.ticket = ticket;
+        this.chair = chair;
         
         jLabel9.setText(this.ticket.toString());
         jLabel10.setText(AppUtil.getStudioTimeRepository().getStudioName(this.film.getIdStudio()));
@@ -169,15 +188,34 @@ public class OrderConfirmation extends javax.swing.JFrame {
         Integer totalPrice = film.getPrice() * this.ticket;
         jLabel15.setText(totalPrice.toString());
         
+        
+        // mapping
+        Map<String, String> mapMonth = new HashMap<>();
+        mapMonth.put("January", "Januari");
+        mapMonth.put("February", "Februari");
+        mapMonth.put("March", "Maret");
+        mapMonth.put("November", "November");
+        mapMonth.put("December", "Desember");
+        
+        Map<String, String> mapDay = new HashMap<>();
+        mapDay.put("Sunday", "Minggu");
+        mapDay.put("Monday", "Senin");
+        mapDay.put("Tuesday", "Selasa");
+        mapDay.put("Wednesday", "Rabu");
+        mapDay.put("Thrusday", "Kamis");
+        mapDay.put("Friday", "Jumat");
+        mapDay.put("Saturday", "Sabtu");
+        
+
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd");  
         String timeNow = formatter.format(date);
         
         String dateOrder = "";
         Calendar c = Calendar.getInstance();
-        dateOrder += (c.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.ENGLISH ) + ", ");
+        dateOrder += (mapDay.get(c.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.ENGLISH )) + ", ");
         dateOrder += (timeNow + " ");
-        dateOrder += (c.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH ) + " ");
+        dateOrder += (mapMonth.get(c.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH )) + " ");
         
         formatter = new SimpleDateFormat("yyyy");  
         timeNow = formatter.format(date);
@@ -187,8 +225,18 @@ public class OrderConfirmation extends javax.swing.JFrame {
         // Saturday, 14 November 2022
         
         jLabel13.setText(dateOrder);
-       
-
+        
+        // button
+        buttonList = new ArrayList<>();
+        buttonList.add(jButton1);
+        buttonList.add(jButton2);
+        buttonList.add(jButton3);
+        topThree = AppUtil.getSnackRepository().getTopThree();
+        int i = 0;
+        for (JButton button : buttonList){
+            button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + topThree[i].getId()+ ".jpg")));
+            i++;
+        }
         
         setLocationRelativeTo(null);
         setVisible(true);
