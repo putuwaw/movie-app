@@ -11,10 +11,11 @@ import movieapp.service.UserService;
 import movieapp.service.UserServiceImpl;
 import movieapp.repository.FilmRepository;
 import movieapp.repository.FilmRepositoryImpl;
+import movieapp.repository.SnackRepository;
+import movieapp.repository.SnackRepositoryImpl;
 import movieapp.service.FilmService;
 import movieapp.service.FilmServiceImpl;
 import movieapp.view.UserView;
-import movieapp.entity.StudioTime;
 import movieapp.repository.StudioTimeRepository;
 import movieapp.repository.StudioTimeRepositoryImpl;
 
@@ -34,6 +35,8 @@ public class AppUtil {
     
     private static StudioTimeRepository studioTimeRepository;
     
+    private static SnackRepository snackRepository;
+    
     public static void init(){
         dataSource = DatabaseUtil.getDataSource();
         
@@ -45,6 +48,8 @@ public class AppUtil {
         filmService = new FilmServiceImpl(filmRepository);
         
         studioTimeRepository = new StudioTimeRepositoryImpl(dataSource);
+        
+        snackRepository = new SnackRepositoryImpl(dataSource);
     }
     
     public static DataSource getDataSource(){
@@ -69,5 +74,8 @@ public class AppUtil {
     
     public static StudioTimeRepository getStudioTimeRepository(){
         return studioTimeRepository;
+    }
+    public static SnackRepository getSnackRepository(){
+        return snackRepository;
     }
 }
