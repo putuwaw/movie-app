@@ -11,6 +11,8 @@ import movieapp.entity.Film;
 import movieapp.entity.Snack;
 import movieapp.util.AppUtil;
 
+import movieapp.entity.SnackDetail;
+
 /**
  *
  * @author Putu Widyantara
@@ -19,13 +21,15 @@ public class SnackSelect extends javax.swing.JFrame {
     private Film film;
     private String time;
     private Integer ticket;
-    ArrayList<String> chair;
+    private ArrayList<String> chair;
     
-    ArrayList<JButton> buttonList;
-    ArrayList<JLabel> titleLabel;
-    ArrayList<JLabel> descLabel;
+    private ArrayList<JButton> buttonList;
+    private ArrayList<JLabel> titleLabel;
+    private ArrayList<JLabel> descLabel;
     
     private Snack[] snack;
+    
+    private ArrayList<SnackDetail> snackDetail;
     
     /**
      * Creates new form SnackSelect
@@ -53,50 +57,111 @@ public class SnackSelect extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BackButton.setBorderPainted(false);
-        BackButton.setContentAreaFilled(false);
-        BackButton.setFocusPainted(false);
+        BackButton.setText("Kembali");
         BackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 60, 40));
+        getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 90, 30));
 
         jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 90, 100));
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 60, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 90, -1));
 
         jLabel3.setText("text");
-        jLabel3.setMaximumSize(new java.awt.Dimension(20, 16));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 110, 50));
 
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 230, 90, -1));
 
         jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 90, 50));
 
         jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 90, 100));
 
         jButton3.setText("jButton3");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 90, 100));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 90, 100));
 
         jButton4.setText("jButton4");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 80, 100));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 90, 100));
 
         jButton5.setText("jButton5");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 80, 100));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 90, 100));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snack_list.png"))); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 230, 90, -1));
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 230, 90, -1));
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("jLabel8");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 230, 80, -1));
+
+        jLabel9.setText("jLabel9");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 90, 60));
+
+        jLabel10.setText("jLabel10");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 80, 60));
+
+        jLabel11.setText("jLabel11");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 90, 60));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("MOVIEAPP");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jLabel13.setText("Pemilihan Snack");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/base.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -104,16 +169,45 @@ public class SnackSelect extends javax.swing.JFrame {
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         OrderConfirmation oc = new OrderConfirmation();
-        oc.view(this.film, this.time, this.ticket, this.chair);
+        oc.view(this.film, this.time, this.ticket, this.chair, this.snackDetail);
         dispose();
     }//GEN-LAST:event_BackButtonActionPerformed
 
-    public void view(Film film, String time, Integer ticket, ArrayList<String> chair){
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        SnackDetailSelect sds = new SnackDetailSelect();
+        sds.view(this.film, this.time, this.ticket, this.chair, this.snackDetail, 0, this.snack[0].getId());
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        SnackDetailSelect sds = new SnackDetailSelect();
+        sds.view(this.film, this.time, this.ticket, this.chair, this.snackDetail, 0, this.snack[1].getId());
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        SnackDetailSelect sds = new SnackDetailSelect();
+        sds.view(this.film, this.time, this.ticket, this.chair, this.snackDetail, 0, this.snack[2].getId());
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        SnackDetailSelect sds = new SnackDetailSelect();
+        sds.view(this.film, this.time, this.ticket, this.chair, this.snackDetail, 0, this.snack[3].getId());
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        SnackDetailSelect sds = new SnackDetailSelect();
+        sds.view(this.film, this.time, this.ticket, this.chair, this.snackDetail, 0, this.snack[3].getId());
+        dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    public void view(Film film, String time, Integer ticket, ArrayList<String> chair, ArrayList<SnackDetail> snackDetail){
         this.film = film;
         this.time = time;
         this.ticket = ticket;
-        this.chair = chair;
-        
+        this.chair = chair;        
         
         this.buttonList = new ArrayList<>();
         buttonList.add(jButton1);
@@ -132,6 +226,9 @@ public class SnackSelect extends javax.swing.JFrame {
         this.titleLabel = new ArrayList<>();
         titleLabel.add(jLabel2);
         titleLabel.add(jLabel4);
+        titleLabel.add(jLabel6);
+        titleLabel.add(jLabel7);
+        titleLabel.add(jLabel8);
         i = 0;
         for (JLabel label : titleLabel){
             label.setText(this.snack[i].getName());
@@ -141,11 +238,17 @@ public class SnackSelect extends javax.swing.JFrame {
         this.descLabel = new ArrayList<>();
         descLabel.add(jLabel3);
         descLabel.add(jLabel5);
+        descLabel.add(jLabel9);
+        descLabel.add(jLabel10);
+        descLabel.add(jLabel11);
         i = 0;
         for (JLabel label : descLabel){
             label.setText("<html>" + this.snack[i].getDesc() + "</html>");
             i++;
         }
+        
+        // snack
+        this.snackDetail = snackDetail;
         
         setLocationRelativeTo(null);
         setVisible(true);
@@ -159,9 +262,17 @@ public class SnackSelect extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

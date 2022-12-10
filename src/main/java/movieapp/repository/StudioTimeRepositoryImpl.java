@@ -31,10 +31,12 @@ public class StudioTimeRepositoryImpl implements StudioTimeRepository {
             while (resultSet.next()) {
                 result =  resultSet.getInt(1);
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
-        System.out.println(result);
         return result;
     }
 
@@ -50,6 +52,9 @@ public class StudioTimeRepositoryImpl implements StudioTimeRepository {
                 String temp =  resultSet.getString("time");
                 result.add(temp);
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
@@ -68,6 +73,9 @@ public class StudioTimeRepositoryImpl implements StudioTimeRepository {
                 String temp =  resultSet.getString("status");
                 result.add(temp);
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
@@ -85,6 +93,9 @@ public class StudioTimeRepositoryImpl implements StudioTimeRepository {
             while (resultSet.next()) {
                 result =  resultSet.getString("name");
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }

@@ -15,6 +15,7 @@ public class App {
 
     public static void main(String[] args) {
         AppUtil.init();
+        AppUtil.getFilmService().updateFilm();
         
         HomePage homePage = new HomePage();
         homePage.view();

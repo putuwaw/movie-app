@@ -39,6 +39,11 @@ public class UserRepositoryImpl implements UserRepository {
                 user.setPassword(resultSet.getString("password"));
                 list.add(user);
             }
+            
+            connection.close();
+            statement.close();
+            resultSet.close();
+            
             return list.toArray(User[]::new);
         } catch (SQLException exception) {
             throw new RuntimeException(exception);

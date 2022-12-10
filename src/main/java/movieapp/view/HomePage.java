@@ -9,6 +9,7 @@ import movieapp.util.AppUtil;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -38,6 +39,12 @@ public class HomePage extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,7 +88,31 @@ public class HomePage extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 120, 190));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home.jpg"))); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 110, 30));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 120, 30));
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 120, 30));
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 120, 30));
+
+        jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("MOVIEAPP");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, -1));
+
+        jLabel7.setText("NOW PLAYING");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/base.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -129,6 +160,17 @@ public class HomePage extends javax.swing.JFrame {
             button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + playing[i].getId()+ ".jpg")));
             i++;
         }
+        
+        List<JLabel> labelList = new ArrayList<>();
+        labelList.add(jLabel2);
+        labelList.add(jLabel3);
+        labelList.add(jLabel4);
+        labelList.add(jLabel5);
+        i = 0;
+        for (JLabel label: labelList){
+            label.setText(playing[i].getName());
+            i++;
+        }
     }
     
     public void view(){
@@ -144,5 +186,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

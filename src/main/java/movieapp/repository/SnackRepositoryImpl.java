@@ -37,6 +37,9 @@ public class SnackRepositoryImpl implements SnackRepository {
                 snack.setDesc(resultSet.getString("desc"));
                 list.add(snack);
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
             return list.toArray(Snack[]::new);
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
@@ -58,10 +61,33 @@ public class SnackRepositoryImpl implements SnackRepository {
                 snack.setDesc(resultSet.getString("desc"));
                 list.add(snack);
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
             return list.toArray(Snack[]::new);
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
+    }
+
+    @Override
+    public String getNameById(String id) {
+        String result = "";
+        String sql = "SELECT `name` FROM `snack` WHERE `id_snack` = '" + id + "'";
+        try (
+            Connection connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql)) {
+            while (resultSet.next()) {
+                result =  resultSet.getString("name");
+            }
+            connection.close();
+            statement.close();
+            resultSet.close();
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+        return result;
     }
     
 }

@@ -13,4 +13,5 @@ import movieapp.entity.Snack;
 public interface SnackRepository {
     Snack[] getTopThree();
     Snack[] getSnack();
+    String getNameById(String id);
 }

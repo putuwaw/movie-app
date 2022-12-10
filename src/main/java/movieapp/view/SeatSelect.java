@@ -5,11 +5,15 @@
 package movieapp.view;
 
 import java.awt.Color;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
 import javax.swing.JButton;
 import movieapp.entity.Film;
 import movieapp.util.AppUtil;
+
+import movieapp.entity.SnackDetail;
 
 /**
  *
@@ -60,6 +64,12 @@ public class SeatSelect extends javax.swing.JFrame {
         jButton16 = new javax.swing.JButton();
         ticketLeft = new javax.swing.JLabel();
         ConfirmButton = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,77 +89,95 @@ public class SeatSelect extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BackButton.setBorderPainted(false);
-        BackButton.setContentAreaFilled(false);
-        BackButton.setFocusPainted(false);
+        BackButton.setText("Kembali");
         BackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 320, 80, 40));
+        getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 90, 30));
 
         jButton1.setText("A1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
 
         jButton2.setText("A2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
 
         jButton3.setText("A3");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, -1, -1));
 
         jButton4.setText("A4");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, -1, -1));
 
         jButton5.setText("B1");
         jButton5.setToolTipText("");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
 
         jButton6.setText("B2");
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
 
         jButton7.setText("B3");
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, -1, -1));
 
         jButton8.setText("B4");
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
 
         jButton9.setText("C1");
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
 
         jButton10.setText("C2");
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
+        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, -1, -1));
 
         jButton11.setText("C3");
-        getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
+        getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, -1));
 
         jButton12.setText("C4");
-        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
+        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, -1, -1));
 
         jButton13.setText("D1");
-        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, -1, -1));
+        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
 
         jButton14.setText("D2");
-        getContentPane().add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
+        getContentPane().add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, -1));
 
         jButton15.setText("D3");
-        getContentPane().add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
+        getContentPane().add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
 
         jButton16.setText("D4");
-        getContentPane().add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
-        getContentPane().add(ticketLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 70, 30));
+        getContentPane().add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
 
-        ConfirmButton.setBorderPainted(false);
-        ConfirmButton.setContentAreaFilled(false);
-        ConfirmButton.setFocusPainted(false);
+        ticketLeft.setText("2");
+        getContentPane().add(ticketLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 68, 40, 60));
+
+        ConfirmButton.setText("Konfirmasi");
         ConfirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConfirmButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(ConfirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 120, 40));
+        getContentPane().add(ConfirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 120, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/select_seat.png"))); // NOI18N
+        jButton18.setText("Area Layar");
+        getContentPane().add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 330, -1));
+
+        jLabel3.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("MOVIEAPP");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, -1));
+
+        jLabel4.setText("Pemilihan Kursi");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 30));
+
+        jLabel5.setText("Tiket tersisa:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, -1, -1));
+
+        jLabel6.setText("MovieApp - Studio");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        jLabel7.setText("Date: 11-11-2022, Time: 13.00");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/base.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 360));
 
         pack();
@@ -173,8 +201,9 @@ public class SeatSelect extends javax.swing.JFrame {
                     selectedChair.add(button.getText());
                 }
             }
+            ArrayList<SnackDetail> snackDetail = new ArrayList<>();
             OrderConfirmation oc = new OrderConfirmation();
-            oc.view(this.film, this.time, this.absTicket, selectedChair);
+            oc.view(this.film, this.time, this.absTicket, selectedChair, snackDetail);
             dispose();
         }
     }//GEN-LAST:event_ConfirmButtonActionPerformed
@@ -208,6 +237,19 @@ public class SeatSelect extends javax.swing.JFrame {
         buttonList.add(jButton14);
         buttonList.add(jButton15);
         buttonList.add(jButton16);
+        
+        jLabel6.setText(AppUtil.getStudioTimeRepository().getStudioName(film.getIdStudio()));
+        
+        String dateForLabel = "Tanggal: ";
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
+        Date date = new Date();
+        String timeNow = formatter.format(date);
+        dateForLabel += timeNow;
+        dateForLabel += ", Waktu: ";
+        dateForLabel += this.time;
+        jLabel7.setText(dateForLabel);
+        
         
         int counter = 0;
         for (JButton button : buttonList){
@@ -247,6 +289,7 @@ public class SeatSelect extends javax.swing.JFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -258,6 +301,11 @@ public class SeatSelect extends javax.swing.JFrame {
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel ticketLeft;
     // End of variables declaration//GEN-END:variables
 }

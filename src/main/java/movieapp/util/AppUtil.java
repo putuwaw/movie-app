@@ -18,6 +18,10 @@ import movieapp.service.FilmServiceImpl;
 import movieapp.view.UserView;
 import movieapp.repository.StudioTimeRepository;
 import movieapp.repository.StudioTimeRepositoryImpl;
+import movieapp.repository.SnackDetailRepository;
+import movieapp.repository.SnackDetailRepositoryImpl;
+import movieapp.repository.TransactionRepository;
+import movieapp.repository.TransactionRepositoryImpl;
 
 /**
  *
@@ -37,6 +41,10 @@ public class AppUtil {
     
     private static SnackRepository snackRepository;
     
+    private static SnackDetailRepository snackDetailRepository;
+    
+    private static TransactionRepository transactionRepository;
+    
     public static void init(){
         dataSource = DatabaseUtil.getDataSource();
         
@@ -50,6 +58,10 @@ public class AppUtil {
         studioTimeRepository = new StudioTimeRepositoryImpl(dataSource);
         
         snackRepository = new SnackRepositoryImpl(dataSource);
+        
+        snackDetailRepository = new SnackDetailRepositoryImpl(dataSource);
+        
+        transactionRepository = new TransactionRepositoryImpl(dataSource);
     }
     
     public static DataSource getDataSource(){
@@ -77,5 +89,13 @@ public class AppUtil {
     }
     public static SnackRepository getSnackRepository(){
         return snackRepository;
+    }
+    
+    public static SnackDetailRepository getSnackDetailRepository(){
+        return snackDetailRepository;
+    }
+    
+    public static TransactionRepository getTransactionRepository(){
+        return transactionRepository;
     }
 }

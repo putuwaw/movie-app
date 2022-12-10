@@ -44,7 +44,11 @@ public class FilmRepositoryImpl implements FilmRepository {
                 film.setRating(resultSet.getDouble("rating"));
                 list.add(film);
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
             return list.toArray(Film[]::new);
+            
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
@@ -59,6 +63,8 @@ public class FilmRepositoryImpl implements FilmRepository {
             preparedStatement.setDouble(1, film.getRating());
             preparedStatement.setString(2, film.getId());
             preparedStatement.executeUpdate();
+            connection.close();
+            preparedStatement.close();
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
@@ -86,6 +92,9 @@ public class FilmRepositoryImpl implements FilmRepository {
                 film.setRating(resultSet.getDouble("rating"));
                 list.add(film);
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
             return list.toArray(Film[]::new);
         } catch (SQLException exception) {
             throw new RuntimeException(exception);

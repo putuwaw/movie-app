@@ -50,7 +50,6 @@ public class FilmServiceImpl implements FilmService {
         showFilm();
         String charset = "UTF-8";
         Film[] model = filmRepository.getAll();
-        System.out.println("LIST FILM: ");
         for (Film film: model){
             String parameter = "";
             try {
