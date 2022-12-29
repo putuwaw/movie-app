@@ -5,8 +5,9 @@
 
 package movieapp;
 
+import javax.swing.UIManager;
 import movieapp.util.AppUtil;
-import movieapp.view.HomePage;
+import movieapp.view.Login;
 /**
  *
  * @author Putu Widyantara
@@ -15,9 +16,13 @@ public class App {
 
     public static void main(String[] args) {
         AppUtil.init();
-        AppUtil.getFilmService().updateFilm();
+        // AppUtil.getFilmService().updateFilm();
+        try {
+            UIManager.setLookAndFeel(
+                    UIManager.getSystemLookAndFeelClassName());
+        } catch(Exception ignored){}
         
-        HomePage homePage = new HomePage();
-        homePage.view();
+        Login login = new Login();
+        login.view();
     }
 }

@@ -14,4 +14,6 @@ public interface SnackDetailRepository {
     SnackDetail[] getAll();
     Integer getPriceByIdSize(String id, String size);
     Integer getStockByIdSize(String id, String size);
+    Integer setDecreaceStock(String id, String size);
+    Integer setUpdateStock(String id, String size, Integer update);
 }

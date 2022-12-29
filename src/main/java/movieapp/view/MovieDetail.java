@@ -36,94 +36,75 @@ public class MovieDetail extends javax.swing.JFrame {
         TrailerButton = new javax.swing.JButton();
         BuyButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 120, 200));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 190, 310));
 
-        BackButton.setText("Kembali");
+        BackButton.setBorderPainted(false);
+        BackButton.setContentAreaFilled(false);
+        BackButton.setFocusPainted(false);
         BackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 90, 30));
+        getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 100, 30));
 
-        TrailerButton.setText("Tonton Trailer");
+        TrailerButton.setBorderPainted(false);
+        TrailerButton.setContentAreaFilled(false);
+        TrailerButton.setFocusPainted(false);
         TrailerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TrailerButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(TrailerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 273, 130, 40));
+        getContentPane().add(TrailerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 190, 70));
 
-        BuyButton.setText("Beli Sekarang");
+        BuyButton.setBorderPainted(false);
+        BuyButton.setContentAreaFilled(false);
+        BuyButton.setFocusPainted(false);
         BuyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuyButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(BuyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 273, 120, 40));
+        getContentPane().add(BuyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, 190, 70));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(197, 163, 99));
         jLabel3.setText("Nama Film:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 90, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 90, 20));
 
-        jLabel5.setText("Harga Tiket:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, -1, -1));
-
-        jLabel4.setText("Genre Film:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("Sinopsis");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
-
+        jLabel7.setForeground(new java.awt.Color(197, 163, 99));
         jLabel7.setText("Desc");
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 280, 40));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("MOVIEAPP");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, -1));
-
-        jLabel2.setText("Detail Film");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 56, -1, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 530, 120));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(197, 163, 99));
         jLabel9.setText("Durasi");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 30, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 180, 30, -1));
 
-        jLabel10.setText("Rating Film:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
-
+        jLabel11.setForeground(new java.awt.Color(197, 163, 99));
         jLabel11.setText("jLabel11");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 136, -1, 30));
 
+        jLabel12.setForeground(new java.awt.Color(197, 163, 99));
         jLabel12.setText("jLabel12");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, -1));
 
+        jLabel13.setForeground(new java.awt.Color(197, 163, 99));
         jLabel13.setText("jLabel13");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, -1));
 
-        jLabel14.setText("menit");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, 20));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/base.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviedetail.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -152,7 +133,6 @@ public class MovieDetail extends javax.swing.JFrame {
 
     public void view(Film film){
         this.selectedFilm = film;
-        jLabel2.setText("Detail film " + film.getName());
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + film.getId()+ ".jpg")));
         
         // title
@@ -162,8 +142,6 @@ public class MovieDetail extends javax.swing.JFrame {
         jLabel13.setText(film.getPrice().toString());
         jLabel9.setText(film.getDuration().toString());
         jLabel7.setText("<html>" + film.getPlot() + "</html>");
-        
-        
         
         setLocationRelativeTo(null);
         setVisible(true);
@@ -175,18 +153,11 @@ public class MovieDetail extends javax.swing.JFrame {
     private javax.swing.JButton TrailerButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

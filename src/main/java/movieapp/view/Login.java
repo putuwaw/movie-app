@@ -5,12 +5,14 @@
 package movieapp.view;
 
 import movieapp.util.AppUtil;
+import movieapp.entity.User;
 /**
  *
  * @author Putu Widyantara
  */
 public class Login extends javax.swing.JFrame {
-
+    public Integer userAccessStatus;
+    
     /**
      * Creates new form Login
      */
@@ -34,10 +36,10 @@ public class Login extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        BackButton = new javax.swing.JButton();
         UsernameField = new javax.swing.JTextField();
         PasswordField = new javax.swing.JPasswordField();
         Login = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jButton1.setText("OK");
@@ -107,18 +109,8 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        BackButton.setBorderPainted(false);
-        BackButton.setContentAreaFilled(false);
-        BackButton.setFocusPainted(false);
-        BackButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 60, 40));
-        getContentPane().add(UsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 122, 240, 30));
-        getContentPane().add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 240, 30));
+        getContentPane().add(UsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 260, 40));
+        getContentPane().add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 260, 40));
 
         Login.setBorderPainted(false);
         Login.setContentAreaFilled(false);
@@ -128,10 +120,20 @@ public class Login extends javax.swing.JFrame {
                 LoginActionPerformed(evt);
             }
         });
-        getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 233, 70, 40));
+        getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 80, 40));
+
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setFocusPainted(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, -1, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 360));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -140,15 +142,18 @@ public class Login extends javax.swing.JFrame {
         ErrorDialog.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
-        HomePage homePage = new HomePage();
-        homePage.view();
-        dispose();
-    }//GEN-LAST:event_BackButtonActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Dashboard dashboard = new Dashboard();
-        dashboard.view();
+        User user = AppUtil.getUserRepository().getUserByUsername(UsernameField.getText());
+        AppUtil.setUser(user);
+        if (userAccessStatus == 0){
+            // user
+            HomePage homePage = new HomePage();
+            homePage.view();
+        }else if (userAccessStatus == 1){
+            // admin
+            Dashboard dashboard = new Dashboard();
+            dashboard.view();
+        }
         SuccessDialog.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -157,6 +162,7 @@ public class Login extends javax.swing.JFrame {
         String getUsername = UsernameField.getText();
         String getPassword = String.valueOf(PasswordField.getPassword());
         if (AppUtil.getUserService().checkLogin(getUsername, getPassword)) {
+            userAccessStatus = AppUtil.getUserRepository().getAccessStatusByUsername(getUsername);
             SuccessDialog.pack();
             SuccessDialog.setLocationRelativeTo(null);
             SuccessDialog.setVisible(true);
@@ -168,13 +174,18 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_LoginActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Register register = new Register();
+        register.view();
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     public void view(){
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BackButton;
     private javax.swing.JDialog ErrorDialog;
     private javax.swing.JButton Login;
     private javax.swing.JPasswordField PasswordField;
@@ -182,6 +193,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField UsernameField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

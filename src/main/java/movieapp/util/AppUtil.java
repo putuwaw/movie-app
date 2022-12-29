@@ -5,6 +5,7 @@
 package movieapp.util;
 
 import javax.sql.DataSource;
+import movieapp.entity.User;
 import movieapp.repository.UserRepository;
 import movieapp.repository.UserRepositoryImpl;
 import movieapp.service.UserService;
@@ -44,6 +45,8 @@ public class AppUtil {
     private static SnackDetailRepository snackDetailRepository;
     
     private static TransactionRepository transactionRepository;
+    
+    private static User user;
     
     public static void init(){
         dataSource = DatabaseUtil.getDataSource();
@@ -98,4 +101,12 @@ public class AppUtil {
     public static TransactionRepository getTransactionRepository(){
         return transactionRepository;
     }
+    
+    public static User getUser(){
+        return user;
+    }
+    public static void setUser(User setCurrUser){
+        user = setCurrUser;
+    }
+    
 }

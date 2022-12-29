@@ -5,6 +5,7 @@
 package movieapp.repository;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -87,5 +88,49 @@ public class SnackDetailRepositoryImpl implements SnackDetailRepository {
         }
         return result;
     }
-    
+
+    @Override
+    public Integer setDecreaceStock(String id, String size) {
+        Integer result = 0;
+        Integer currStock = getStockByIdSize(id, size);
+        currStock--;
+        String sql = "UPDATE `snack_detail` SET `stock` = ? WHERE `id_snack` = ? AND `size` = ?";
+
+            try (
+                Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setInt(1, currStock);
+                preparedStatement.setString(2, id);
+                preparedStatement.setString(3, size);
+
+                result = preparedStatement.executeUpdate();
+                
+                connection.close();
+                preparedStatement.close();
+            } catch (SQLException exception) {
+                throw new RuntimeException(exception);
+            }
+        return result;
+    }
+
+    @Override
+    public Integer setUpdateStock(String id, String size, Integer update) {
+        Integer result = 0;
+        String sql = "UPDATE `snack_detail` SET `stock` = ? WHERE `id_snack` = ? AND `size` = ?";
+            try (
+                Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setInt(1, update);
+                preparedStatement.setString(2, id);
+                preparedStatement.setString(3, size);
+
+                result = preparedStatement.executeUpdate();
+                
+                connection.close();
+                preparedStatement.close();
+            } catch (SQLException exception) {
+                throw new RuntimeException(exception);
+            }
+        return result;
+    }
 }

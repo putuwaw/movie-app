@@ -15,4 +15,5 @@ public interface StudioTimeRepository {
     ArrayList<String> getListFilmTime(String idStudio);
     ArrayList<String> getAvailSeat(String idStudio, String time);
     String getStudioName(String idStudio);
+    Integer setNotAvailChair(String idStudio, String time, ArrayList<String> chair);
 }

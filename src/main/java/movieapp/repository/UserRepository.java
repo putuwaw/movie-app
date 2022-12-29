@@ -12,4 +12,7 @@ import movieapp.entity.User;
  */
 public interface UserRepository {
     User[] getAll();
+    Integer getAccessStatusByUsername(String username);
+    User getUserByUsername(String username);
+    Integer registerUser(String username, String password, Integer accessLevel);
 }

@@ -5,6 +5,7 @@
 package movieapp.repository;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -101,4 +102,32 @@ public class StudioTimeRepositoryImpl implements StudioTimeRepository {
         }
         return result;
     }
+
+    @Override
+    public Integer setNotAvailChair(String idStudio, String time, ArrayList<String> chair) {
+        Integer result = 0;
+        for (String ch : chair){
+            String sql = "UPDATE `studio_time` SET `status` = 'Not Available' WHERE `studio_id` = ? AND `time` = ? AND `row` = ? AND `column` = ?";
+
+            try (
+                Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setString(1, idStudio);
+                preparedStatement.setString(2, time);
+                
+                String row = String.valueOf(ch.charAt(0));
+                String col = String.valueOf(ch.charAt(1));
+                preparedStatement.setString(3, row);
+                preparedStatement.setString(4, col);
+
+                preparedStatement.executeUpdate();
+                
+                connection.close();
+                preparedStatement.close();
+            } catch (SQLException exception) {
+                throw new RuntimeException(exception);
+            }
+        }
+        return result;
+    };
 }

@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
         User[] model = userRepository.getAll();
         System.out.println("LIST USER: ");
         for (User user: model){
-            System.out.println(user.getId() + ". " + user.getUsername() + " | " + user.getPassword());
+            System.out.println(user.getIdUser() + ". " + user.getUsername() + " | " + user.getPassword());
         }
     }
     
@@ -43,4 +43,19 @@ public class UserServiceImpl implements UserService {
         }
         return false;
     }
+
+    @Override
+    public boolean checkRegister(String username, String password1, String password2) {
+        showUser();
+        User[] model = userRepository.getAll();
+        for(User user: model){
+            if (Objects.equals(username, user.getUsername()) || Objects.equals(username, "")){
+                return false;
+            }else if ("".equals(password1) || (password1 == null ? password2 != null : !password1.equals(password2))){
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

@@ -11,4 +11,5 @@ package movieapp.service;
 public interface UserService {
     void showUser();
     boolean checkLogin(String username, String password);
+    boolean checkRegister(String username, String password1, String password2);
 }

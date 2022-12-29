@@ -16,9 +16,9 @@ public class DatabaseUtil {
     static{
         HikariConfig configuration = new HikariConfig();
         configuration.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        configuration.setUsername(System.getenv("DB_USERNAME"));
-        configuration.setPassword(System.getenv("DB_PASSWORD"));
-        configuration.setJdbcUrl("jdbc:mysql://" + System.getenv("DB_ADDRESS") + System.getenv("DB_NAME"));
+        configuration.setUsername("u340879946_root");
+        configuration.setPassword("Hostinger123");
+        configuration.setJdbcUrl("jdbc:mysql://sql476.main-hosting.eu/u340879946_db_movieapp");
 
         // configuration.setUsername(System.getenv("DB_USERNAME_LOCAL"));
         // configuration.setPassword(System.getenv("DB_PASSWORD_LOCAL"));

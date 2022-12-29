@@ -53,8 +53,6 @@ public class StudioSelect extends javax.swing.JFrame {
         StudioButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         TicketAvailLabel = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,43 +70,45 @@ public class StudioSelect extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 110, 190));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 190, 310));
 
-        BackButton.setText("Kembali");
+        BackButton.setBorderPainted(false);
+        BackButton.setContentAreaFilled(false);
+        BackButton.setFocusPainted(false);
         BackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 90, 30));
+        getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 90, 30));
 
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 80, 40));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 140, 50));
 
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 80, 40));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 140, 50));
 
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 80, 40));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 140, 50));
 
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 90, 40));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 170, 140, 50));
 
         DecreaseButton.setText("-");
         DecreaseButton.setEnabled(false);
@@ -117,7 +117,7 @@ public class StudioSelect extends javax.swing.JFrame {
                 DecreaseButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(DecreaseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 40, 30));
+        getContentPane().add(DecreaseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 50, 40));
 
         IncreaseButton.setText("+");
         IncreaseButton.setEnabled(false);
@@ -126,36 +126,31 @@ public class StudioSelect extends javax.swing.JFrame {
                 IncreaseButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(IncreaseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 50, 30));
+        getContentPane().add(IncreaseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 50, 40));
 
-        StudioButton.setText("Konfirmasi");
+        StudioButton.setBorderPainted(false);
+        StudioButton.setContentAreaFilled(false);
+        StudioButton.setFocusPainted(false);
         StudioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StudioButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(StudioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 120, 40));
+        getContentPane().add(StudioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 210, 70));
 
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 80, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 160, 40));
 
+        TicketAvailLabel.setForeground(new java.awt.Color(197, 163, 99));
         TicketAvailLabel.setText("Silakan pilih film terlebih dahulu!");
-        getContentPane().add(TicketAvailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 200, 30));
+        getContentPane().add(TicketAvailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 200, 30));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("MOVIEAPP");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 30));
-
-        jLabel4.setText("Pemilihan Jam Tayang");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 56, 150, 20));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/base.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 360));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/studioselect.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -373,7 +368,5 @@ public class StudioSelect extends javax.swing.JFrame {
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
