@@ -2,7 +2,7 @@
 
 <img src="https://github.com/putuwaw/movie-app/blob/main/src/main/resources/logo%20warna.png" width="150px;" alt="Logo MovieApp"/>
 
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Apache Maven](https://img.shields.io/badge/apache_maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
 ![Apache NetBeans](https://img.shields.io/badge/apache%20netbeans-1B6AC6?style=for-the-badge&logo=apache%20netbeans%20IDE&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
@@ -22,7 +22,7 @@ By using MovieApp you can:
 MovieApp is created using:
 - [Java](https://www.java.com/en/) - Java is the main programming languange we used to develop this app.
 - [Apache Maven](https://maven.apache.org/) - Maven is a software project management and comprehension tool.
-- - [Apache NetBeans](https://netbeans.apache.org/) - NetBeans is an integrated development environment for Java.
+- [Apache NetBeans](https://netbeans.apache.org/) - NetBeans is an integrated development environment for Java.
 - [MySQL](https://www.mysql.com/) - MySQL is an open-source relational database management system.
 
 ## Structure 📂
