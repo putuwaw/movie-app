@@ -163,7 +163,7 @@ public class OrderConfirmation extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 120, 40));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 380, 120, 40));
 
         BackButton.setBorderPainted(false);
         BackButton.setContentAreaFilled(false);

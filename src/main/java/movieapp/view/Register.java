@@ -33,8 +33,6 @@ public class Register extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jPasswordField2 = new javax.swing.JPasswordField();
@@ -57,12 +55,6 @@ public class Register extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setText("MOVIEAPP");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
-
-        jLabel3.setText("Register");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 251, 260, 30));
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 298, 260, 30));
         getContentPane().add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 346, 260, 30));
@@ -139,8 +131,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
