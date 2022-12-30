@@ -1,10 +1,14 @@
 # movie-app
 
-<img src="https://github.com/putuwaw/movie-app/blob/main/src/main/resources/logo%20warna.png" width="150px;" alt="Logo IdParser"/>
+<img src="https://github.com/putuwaw/movie-app/blob/main/src/main/resources/logo%20warna.png" width="150px;" alt="Logo MovieApp"/>
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
-![](https://img.shields.io/badge/apache_maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
-![](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![Apache Maven](https://img.shields.io/badge/apache_maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
+![Apache NetBeans](https://img.shields.io/badge/apache%20netbeans-1B6AC6?style=for-the-badge&logo=apache%20netbeans%20IDE&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![Forks](https://img.shields.io/github/forks/putuwaw/movie-app?style=for-the-badge)
+![Contributors](https://img.shields.io/github/contributors/putuwaw/movie-app?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/putuwaw/movie-app?style=for-the-badge)
 
 MovieApp is Desktop Based Movie App using Java Swing, MySQL, and IMDb API.
 
@@ -18,12 +22,14 @@ By using MovieApp you can:
 MovieApp is created using:
 - [Java](https://www.java.com/en/) - Java is the main programming languange we used to develop this app.
 - [Apache Maven](https://maven.apache.org/) - Maven is a software project management and comprehension tool.
+- [Apache NetBeans](https://netbeans.apache.org/) - NetBeans is an integrated development environment for Java.
 - [MySQL](https://www.mysql.com/) - MySQL is an open-source relational database management system.
 
 ## Structure 📂
 ```
 idparser-frontend
 ├── .github
+├── docs
 ├── src
 ├── .gitignore
 ├── LICENSE
@@ -31,6 +37,7 @@ idparser-frontend
 └── pom.xml
 ```
 - [.github](.github/) is a folder that used to place Github related stuff, like issue template and CI pipeline.
+- [docs](docs/) contain documentation of this app.
 - [src](src/) is the main folder that contain Java file, tests, and resources.
 - [.gitignore](.gitignore) is a file to exclude some folders like target.
 - [LICENSE](LICENSE) is a file that contains the license we use in this app.
@@ -40,6 +47,7 @@ idparser-frontend
 ## Requirements 📦
 - Java SE 17 or later
 - Apache Maven 3.8.6 or later
+- Apache NetBeans 16 or later
 - MySQL 8.0 or later
 
 # Installation 🛠️
