@@ -20,15 +20,16 @@ By using MovieApp you can:
 
 ## Technology 👨‍💻
 MovieApp is created using:
-- [Java](https://www.java.com/en/) - Java is the main programming languange we used to develop this app.
+- [Java](https://www.java.com/) - Java is the main programming languange we used to develop this app.
 - [Apache Maven](https://maven.apache.org/) - Maven is a software project management and comprehension tool.
 - [Apache NetBeans](https://netbeans.apache.org/) - NetBeans is an integrated development environment for Java.
 - [MySQL](https://www.mysql.com/) - MySQL is an open-source relational database management system.
 
 ## Structure 📂
 ```
-idparser-frontend
+movie-app
 ├── .github
+├── db
 ├── docs
 ├── src
 ├── .gitignore
@@ -37,6 +38,7 @@ idparser-frontend
 └── pom.xml
 ```
 - [.github](.github/) is a folder that used to place Github related stuff, like issue template and CI pipeline.
+- [db](db/) contain the database schema and the database dump.
 - [docs](docs/) contain documentation of this app.
 - [src](src/) is the main folder that contain Java file, tests, and resources.
 - [.gitignore](.gitignore) is a file to exclude some folders like target.
@@ -55,8 +57,8 @@ idparser-frontend
 ```
 git clone https://github.com/putuwaw/movie-app.git
 ```
-- Build and clean
-- Run the app
+- Build and clean.
+- Run the app.
 
 ## Contributors ✨
 <br>
